@@ -28,7 +28,7 @@ public class Application {
     @JsonIgnore
     @ManyToOne(optional = false, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "citizen_id")
-    private Citizen citizen;
+    private Long citizen_id;
 
     @Column(name = "office_worker_id")
     private Long office_worker_id;
@@ -66,12 +66,12 @@ public class Application {
         this.birthday = birthday;
     }
 
-    public Citizen getCitizen() {
-        return citizen;
+    public Long getCitizen_id() {
+        return citizen_id;
     }
 
-    public void setCitizen(Citizen citizen) {
-        this.citizen = citizen;
+    public void setCitizen_id(Long citizen_id) {
+        this.citizen_id = citizen_id;
     }
 
     public Long getOffice_worker_id() {
@@ -105,4 +105,5 @@ public class Application {
     public void setApproved(Boolean approved) {
         this.approved = approved;
     }
+
 }

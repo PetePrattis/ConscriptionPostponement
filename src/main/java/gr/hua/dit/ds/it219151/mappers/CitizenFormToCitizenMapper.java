@@ -10,6 +10,8 @@ public class CitizenFormToCitizenMapper {
     public Citizen map(CitizenForm citizenForm) {
         Citizen citizen = new Citizen();
         citizen.setEmail(citizenForm.getEmail());
+        citizen.setFirstName(citizenForm.getFirstName());
+        citizen.setLastName(citizenForm.getLastName());
 
         return citizen;
     }

@@ -7,6 +7,7 @@ public class CitizenForm {
     private static final String EMAIL_PATTERN = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$";
 
     @Pattern(regexp = EMAIL_PATTERN, message = "{createCitizen.email.pattern.invalid}")
+    @NotEmpty(message = "{register.not.null}")
     private String email;
     private String firstName;
     private String lastName;
