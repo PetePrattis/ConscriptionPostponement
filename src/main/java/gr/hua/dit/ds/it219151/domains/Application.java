@@ -1,6 +1,5 @@
 package gr.hua.dit.ds.it219151.domains;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "APPLICATION", uniqueConstraints = {@UniqueConstraint(columnNames = {"id"})})
+@Table(name = "APPLICATION")
 public class Application {
 
     @Id
@@ -25,16 +24,14 @@ public class Application {
     @Column(name = "birthday")
     private String birthday;
 
-    @JsonIgnore
-    @ManyToOne(optional = false, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinColumn(name = "citizen_id")
-    private Long citizen_id;
+    @Column(name = "citizen_id")
+    private Long citizenId;
 
     @Column(name = "office_worker_id")
-    private Long office_worker_id;
+    private Long officeWorkerId;
 
     @Column(name = "army_officer_id")
-    private Long army_officer_id;
+    private Long armyOfficerId;
 
     @Column(name = "validated")
     private Long validated;
@@ -66,28 +63,28 @@ public class Application {
         this.birthday = birthday;
     }
 
-    public Long getCitizen_id() {
-        return citizen_id;
+    public Long getCitizenId() {
+        return citizenId;
     }
 
-    public void setCitizen_id(Long citizen_id) {
-        this.citizen_id = citizen_id;
+    public void setCitizenId(Long citizenId) {
+        this.citizenId = citizenId;
     }
 
-    public Long getOffice_worker_id() {
-        return office_worker_id;
+    public Long getOfficeWorkerId() {
+        return officeWorkerId;
     }
 
-    public void setOffice_worker_id(Long office_worker_id) {
-        this.office_worker_id = office_worker_id;
+    public void setOfficeWorkerId(Long officeWorkerId) {
+        this.officeWorkerId = officeWorkerId;
     }
 
-    public Long getArmy_officer_id() {
-        return army_officer_id;
+    public Long getArmyOfficerId() {
+        return armyOfficerId;
     }
 
-    public void setArmy_officer_id(Long army_officer_id) {
-        this.army_officer_id = army_officer_id;
+    public void setArmyOfficerId(Long armyOfficerId) {
+        this.armyOfficerId = armyOfficerId;
     }
 
     public Long getValidated() {

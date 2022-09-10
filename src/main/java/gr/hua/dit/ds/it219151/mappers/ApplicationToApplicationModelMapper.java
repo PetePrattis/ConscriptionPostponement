@@ -12,9 +12,9 @@ public class ApplicationToApplicationModelMapper {
         applicationModel.setId(application.getId());
         applicationModel.setDocument(application.getDocument());
         applicationModel.setBirthday(application.getBirthday());
-        applicationModel.setCitizen_id(application.getCitizen_id());
-        applicationModel.setOffice_worker_id(application.getOffice_worker_id());
-        applicationModel.setArmy_officer_id(application.getArmy_officer_id());
+        applicationModel.setCitizen_id(application.getCitizenId());
+        applicationModel.setOffice_worker_id(application.getOfficeWorkerId());
+        applicationModel.setArmy_officer_id(application.getArmyOfficerId());
         applicationModel.setValidated(application.getValidated());
         applicationModel.setApproved(application.getApproved());
 

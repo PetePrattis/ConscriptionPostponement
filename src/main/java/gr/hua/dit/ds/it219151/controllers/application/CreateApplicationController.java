@@ -9,10 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,7 +31,7 @@ public class CreateApplicationController {
         binder.addValidators(applicationFormValidation);
     }
 
-    @PostMapping(value = "/citizen/create")
+    @GetMapping(value = "/citizen/create")
     public String createApplication(Model model) {
         model.addAttribute(APPLICATIONS_FORM, new ApplicationForm());
         return "pages/application/create_application";

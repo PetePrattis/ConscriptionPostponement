@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "CITIZEN", uniqueConstraints = {@UniqueConstraint(columnNames = {"id", "email"})})
+@Table(name = "CITIZEN", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
 public class Citizen {
 
     @Id
@@ -34,9 +34,6 @@ public class Citizen {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "enlistment_number")
     private Long enlistment_number;
-
-    @OneToMany(mappedBy = "citizen", targetEntity = Application.class, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Application> applications;
 
     public Long getId() {
         return id;
@@ -86,11 +83,4 @@ public class Citizen {
         this.enlistment_number = enlistment_number;
     }
 
-    public List<Application> getApplications() {
-        return applications;
-    }
-
-    public void setApplications(List<Application> applications) {
-        this.applications = applications;
-    }
 }

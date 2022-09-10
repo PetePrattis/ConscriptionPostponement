@@ -83,8 +83,8 @@ public class ApplicationServiceImpl implements ApplicationService{
             Application application = applicationFormToApplication.map(applicationForm);
             Optional<OfficeWorker> officeWorker = officeWorkerRepository.findOfficeWorkerByEmail("admin@mail.com");
             Optional<ArmyOfficer> armyOfficer = armyOfficerRepository.findArmyOfficerByEmail("general@mail.com");
-            application.setOffice_worker_id(officeWorker.isEmpty() ? 0 : officeWorker.get().getId());
-            application.setArmy_officer_id(armyOfficer.isEmpty() ? 0 : armyOfficer.get().getId());
+            application.setOfficeWorkerId(officeWorker.isEmpty() ? 0 : officeWorker.get().getId());
+            application.setArmyOfficerId(armyOfficer.isEmpty() ? 0 : armyOfficer.get().getId());
             Application newApplication = applicationRepository.save(application);
             return applicationToApplicationModel.map(newApplication);
 
