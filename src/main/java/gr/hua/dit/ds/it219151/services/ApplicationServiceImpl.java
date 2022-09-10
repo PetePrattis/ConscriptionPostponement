@@ -2,6 +2,7 @@ package gr.hua.dit.ds.it219151.services;
 
 import gr.hua.dit.ds.it219151.domains.Application;
 import gr.hua.dit.ds.it219151.domains.ArmyOfficer;
+import gr.hua.dit.ds.it219151.domains.Citizen;
 import gr.hua.dit.ds.it219151.domains.OfficeWorker;
 import gr.hua.dit.ds.it219151.exceptions.ApplicationNotFoundException;
 import gr.hua.dit.ds.it219151.exceptions.OnCreateApplicationException;
@@ -14,6 +15,8 @@ import gr.hua.dit.ds.it219151.repositories.ArmyOfficerRepository;
 import gr.hua.dit.ds.it219151.repositories.CitizenRepository;
 import gr.hua.dit.ds.it219151.repositories.OfficeWorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -81,10 +84,16 @@ public class ApplicationServiceImpl implements ApplicationService{
     public ApplicationModel createApplication(ApplicationForm applicationForm) {
         try {
             Application application = applicationFormToApplication.map(applicationForm);
+
             Optional<OfficeWorker> officeWorker = officeWorkerRepository.findOfficeWorkerByEmail("admin@mail.com");
             Optional<ArmyOfficer> armyOfficer = armyOfficerRepository.findArmyOfficerByEmail("general@mail.com");
             application.setOfficeWorkerId(officeWorker.isEmpty() ? 0 : officeWorker.get().getId());
             application.setArmyOfficerId(armyOfficer.isEmpty() ? 0 : armyOfficer.get().getId());
+
+            Citizen currentCitizen = (Citizen) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+            application.setCitizenId(currentCitizen.getId());
+
             Application newApplication = applicationRepository.save(application);
             return applicationToApplicationModel.map(newApplication);
 
