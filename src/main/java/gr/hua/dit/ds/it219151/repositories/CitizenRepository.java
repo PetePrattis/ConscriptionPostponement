@@ -5,5 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface CitizenRepository extends JpaRepository<Citizen, Long> {
-    Optional<Citizen> findCitizenByCitizenId(Long id);
+
+    Optional<Citizen> findCitizenById(Long id);
+
+    Optional<Citizen> findCitizenByEmail(String email);
 }

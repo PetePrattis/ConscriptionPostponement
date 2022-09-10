@@ -37,10 +37,10 @@ public class Application {
     private Long army_officer_id;
 
     @Column(name = "validated")
-    private Boolean validated;
+    private Long validated;
 
     @Column(name = "approved")
-    private Boolean approved;
+    private Long approved;
 
     public Long getId() {
         return id;
@@ -90,19 +90,19 @@ public class Application {
         this.army_officer_id = army_officer_id;
     }
 
-    public Boolean getValidated() {
+    public Long getValidated() {
         return validated;
     }
 
-    public void setValidated(Boolean validated) {
+    public void setValidated(Long validated) {
         this.validated = validated;
     }
 
-    public Boolean getApproved() {
+    public Long getApproved() {
         return approved;
     }
 
-    public void setApproved(Boolean approved) {
+    public void setApproved(Long approved) {
         this.approved = approved;
     }
 

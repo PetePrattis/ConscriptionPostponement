@@ -8,5 +8,5 @@ INSERT INTO OFFICE_WORKER (email, firstname, lastname, password) VALUES ('admin@
 INSERT INTO ARMY_OFFICER (email, firstname, lastname, password) VALUES ('general@mail.com', 'Adam', 'Black', '$2a$12$jve0NdXdA36ZQT30ZkhamO96o/1xeILzdJrrw8U19bMeqKHXxW.LG
 ');
 
-INSERT INTO APPLICATION (document, birthday, citizen_id, office_worker_id, army_officer_id, validated, approved) VALUES ('document 1', '1/1/2000', 1, 'admin', 'general', false, false);
-INSERT INTO APPLICATION (document, birthday, citizen_id, office_worker_id, army_officer_id, validated, approved) VALUES ('document 2', '1/1/2001', 2, 'admin', 'general', true, true);
+INSERT INTO APPLICATION (document, birthday, citizen_id, office_worker_id, army_officer_id, validated, approved) VALUES ('document 1', '1/1/2000', 1, 'admin', 'general', 0, 0);
+INSERT INTO APPLICATION (document, birthday, citizen_id, office_worker_id, army_officer_id, validated, approved) VALUES ('document 2', '1/1/2001', 2, 'admin', 'general', 1, 1);

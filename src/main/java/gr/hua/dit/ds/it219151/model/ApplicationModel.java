@@ -7,8 +7,8 @@ public class ApplicationModel {
     private Long citizen_id;
     private Long office_worker_id;
     private Long army_officer_id;
-    private Boolean validated;
-    private Boolean approved;
+    private Long validated;
+    private Long approved;
 
     public Long getId() {
         return id;
@@ -58,19 +58,19 @@ public class ApplicationModel {
         this.army_officer_id = army_officer_id;
     }
 
-    public Boolean getValidated() {
+    public Long getValidated() {
         return validated;
     }
 
-    public void setValidated(Boolean validated) {
+    public void setValidated(Long validated) {
         this.validated = validated;
     }
 
-    public Boolean getApproved() {
+    public Long getApproved() {
         return approved;
     }
 
-    public void setApproved(Boolean approved) {
+    public void setApproved(Long approved) {
         this.approved = approved;
     }
 }
